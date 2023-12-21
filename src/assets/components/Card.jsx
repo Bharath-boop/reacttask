@@ -1,80 +1,28 @@
 import React from 'react'
 
-function Card(props) {
-  if(props.cardData.h5=="free"){
+function Card({data}) {
     return  <div className="col-lg-4">
         <div className="card mb-5 mb-lg-0">
           <div className="card-body">
-            <h5 className="card-title text-muted text-uppercase text-center">{props.cardData.h5}</h5>
-            <h6 className="card-price text-center">{props.cardData.h6}<span className="period">/month</span></h6>
+            <h5 className="card-title text-muted text-uppercase text-center">{data.plan}</h5>
+            <h6 className="card-price text-center">{data.price}<span className="period">/month</span></h6>
             <hr/>
             <ul className="fa-ul">
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li1}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li2}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li3}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li4}</li>
-              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>{props.cardData.li5}</li>
-              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>{props.cardData.li6}</li>
-              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>{props.cardData.li7}</li>
-              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>{props.cardData.li8}</li>
+              <li className={data.isUser?"":"text-muted"}><span className="fa-li"><i className={data.isUser?"fas fa-check":"fas fa-times"}></i></span>{data.plan!=="FREE"?<strong>{data.user}</strong>:data.user}</li>
+              <li className={data.isStorage?"":"text-muted"}><span className="fa-li"><i className={data.isStorage?"fas fa-check":"fas fa-times"}></i></span>{data.storgae}</li>
+              <li className={data.isProject?"":"text-muted"}><span className="fa-li"><i className={data.isProject?"fas fa-check":"fas fa-times"}></i></span>{data.project}</li>
+              <li className={data.isAccess?"":"text-muted"}><span className="fa-li"><i className={data.isAccess?"fas fa-check":"fas fa-times"}></i></span>{data.access}</li>
+              <li className={data.ispProject?"":"text-muted"}><span className="fa-li"><i className={data.ispProject?"fas fa-check":"fas fa-times"}></i></span>{data.pProject}</li>
+              <li className={data.isSupport?"":"text-muted"}><span className="fa-li"><i className={data.isSupport?"fas fa-check":"fas fa-times"}></i></span>{data.support}</li>
+              <li className={data.isDomain?"":"text-muted"}><span className="fa-li"><i className={data.isDomain?"fas fa-check":"fas fa-times"}></i></span>{data.plan==="Pro"?<><strong>Unlimited </strong>{data.domain}</>:data.domain}</li>
+              <li className={data.isReport?"":"text-muted"}><span className="fa-li"><i className={data.isReport?"fas fa-check":"fas fa-times"}></i></span>{data.report}</li>
             </ul>
             <div className="d-grid">
               <a href="#" className="btn btn-primary text-uppercase">Button</a>
             </div>
           </div>
         </div>
-      </div>
-  }
-  else if(props.cardData.h5=="plus"){
-    return  <div className="col-lg-4">
-        <div className="card mb-5 mb-lg-0">
-          <div className="card-body">
-            <h5 className="card-title text-muted text-uppercase text-center">{props.cardData.h5}</h5>
-            <h6 className="card-price text-center">{props.cardData.h6}<span className="period">/month</span></h6>
-            <hr/>
-            <ul className="fa-ul">
-              <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>{props.cardData.li1}</strong> </li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li2}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li3}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li4}</li>
-              <li ><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li5}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li6}</li>
-              <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li7}</li>
-              <li className="text-muted"><span className="fa-li"><i className="fas fa-times"></i></span>{props.cardData.li8}</li>
-            </ul>
-            <div className="d-grid">
-              <a href="#" className="btn btn-primary text-uppercase">Button</a>
-            </div>
-          </div>
-        </div>
-      </div>
-  }
-  else{
-    return  <div className="col-lg-4">
-    <div className="card mb-5 mb-lg-0">
-      <div className="card-body">
-        <h5 className="card-title text-muted text-uppercase text-center">{props.cardData.h5}</h5>
-        <h6 className="card-price text-center">{props.cardData.h6}<span className="period">/month</span></h6>
-        <hr/>
-        <ul className="fa-ul">
-          <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>{props.cardData.li1}</strong></li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li2}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li3}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li4}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li5}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li6}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span><strong>Unlimited </strong>{props.cardData.li7}</li>
-          <li><span className="fa-li"><i className="fas fa-check"></i></span>{props.cardData.li8}</li>
-        </ul>
-        <div className="d-grid">
-          <a href="#" className="btn btn-primary text-uppercase">Button</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  }
-    
-  
+      </div> 
 }
 
 export default Card
